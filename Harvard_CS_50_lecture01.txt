@@ -1,0 +1,75 @@
+FUNCTIONS
+
+	define function name:
+	methods or code to manipulate parameters passed
+	time/increment/loop/counts
+	return
+
+SOURCE CODE
+	not run by ciomputer typically
+basic ex:
+	#include <stdio.h>    (library?)
+	
+	int main(void)
+	
+	{
+		printf("hello, world\n");    //print function built in to language
+	}
+
+
+source code => compiled code allows computer to read it by outputting binary(0,1) called object code 
+source code - compiler - object code
+values of 0,1 represent statements based on the design by the chip and software/language manufacturer
+
+loops - loops - loops -loo............
+----------------------------------------------------------------------------
+infinite
+		while(true)
+		{
+		  	printf("hello, world\n");
+		}
+
+infinite due to no increment, no counter and no statement or condition to be evaluated
+
+-------------------------------------------------------------------------------------
+
+for loop (one line with variable setting, condition and increment to iterate through parameter data)
+
+	for(int i=0; i<10; i++)
+		{
+		  	printf("hello, world\n");
+		}
+
+will stop executing once condition is false
+------------------------------------------------------------------------------------------------
+
+Boolean  True and False values
+
+True && True    True				AND
+True && False  False
+False && False False
+
+True || True  True				OR		! NOT
+True || False  True
+False || False False
+----------------------------------------------------------------------------------------------------
+
+CONDITION BASED
+
+I assume used for specific outcomes known before hand or multiple outcomes and little need for 
+iteration of array of values
+
+	if(x>y)
+	{
+		print x < y
+	}
+	else if (x<y)
+	{
+		print x is less than y
+	}
+	else
+	{
+		printx is equal to y
+	}
+
+else happens if none of above evaluate to True
