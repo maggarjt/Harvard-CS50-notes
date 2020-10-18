@@ -1,0 +1,100 @@
+CS50 Lecture 1 cont.
+		
+
+./ is like doubleclick file in current folder
+ls = list
+
+basic commands   See Powershell notes for updated cmd line options, piping, searching processes etc...
+
+mkdir makles directory
+cd  change directory
+rm remove
+rmdir remove directory
+
+usually need flags for recursive action to delete all filed in folder or folder completely
+
+make hello produced line of commands
+
+clang -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wno-unused-parameter 
+-Wno-unused-variable -Wshadow    hello.c  -lcrypt -lcs50 -lm -o hello
+
+why do we get this?
+make is a program to figure out how to run a compiler
+
+actual command is the long line of commands, make is an alias for this automating the commands
+
+If we wanted to use a specific app
+ex clang
+
+~:  clang -o hello hello.c   (software executable command, -o (flag for output), filename out,  input file
+
+-------------------------------------------------------------------------------------------
+	
+	
+asking for input from user
+construct string variable
+string s;  string name;
+
+ask with GetString function aand assign to variable of string type and returns
+
+----------------------------------------------------------o----------------------------------------
+
+LEARNING FROM ERRORS
+	undeclared identifier string error
+	language doesnt understand string, we must add a library or lines of code
+	will attempt to add CS50.h
+
+
+input behaviors
+----------------------------------------
+#include <cs50.h>   library with code written by Harvard CS staff
+#include <stdio.h>  library with printf
+
+int main(void)
+{
+    string name;									declare variable
+    printf("what is your name");								called function from stdio.h library
+    name = GetString();								function in stdio.h library
+    printf("hello",  %s\n", name);   print f is taking two arguments  ("string", name variable)		stdio.h library
+}
+
+--------------------------------------
+
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    for( int i = 0 ;  i <100; i++)
+    {
+        printf("I can count to %d\n", i);
+    }
+}
+ runs 100 times, results in 99 as last int variable printed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
