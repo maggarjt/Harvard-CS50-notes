@@ -1,0 +1,107 @@
+Harvard Open Course CS50
+
+Algorithm example 
+x axis size of problem
+y axis time to solve
+------------------------------------------------------------------------
+phone book looking for entry
+
+1. base algorithm  1 page at a time, repeat until success, 
+
+results in porcessing time of n (linear growth with complexity)
+
+----------------------------------------------------------------------------------------------------
+2.  2 pages at a time results in linear line with lower slope but not significantly lower, not a factor of two or 1/2
+----------------------------------------------------------------------------------------------------
+3. cut sample in half each step results in logn search time, bends towards horizontal or slope~0
+  - effective due to coudling of size results in few steps to fins answer, allowing larger data sets and less processing time
+
+
+
+
+
+PSEUDOCODE 
+	let n=o 				(instantiation of  variable of class int)
+	fore each person in room		(for loop)
+	set n = n+1				(increment variable for evaluation by loop)
+
+writing codse independent of language or syntax
+	
+
+Algorithm - set of instructions to solve problems, computers or people perform them 
+
+
+
+
+
+People counting basics
+
+
+
+	n=0
+	
+	for each person in room
+	
+	n=n+1
+--------------------------------------
+Speeding up by counting 2 at a time
+
+n=0
+for each pair of people in room
+increment n=n+2
+*faster than first example but not by a factor of 1/2 
+*buggy due to failure to address odd number of people
+
+---------------------------------------------------------
+
+Counting odd numbers of people
+
+	previous example will return two people so code must be modified to address issue with code and real world  example
+
+	instantiate int class variable  		n=0
+	create loop 					for each pair in room
+	increment 					n = n+2
+
+	condition(branch)					if 1 person remains
+	increment					n=n+1
+
+these are separate loops...I believe second condition only ruins when first condition returns
+increasing number of people counted each loop decreases processing time, but not equal to the inverse of numbers counted/not linear return on increase of effort
+---------------------------------------------------------------------
+
+Large room of people
+everyone assigned int value of 1
+pairing with another standing person, add numbers and one sits, effectively halfing the sample size each step, similar to previous example
+same result with extremely large groups of data, musch faste rprocessing times, resulting in slope of LOGn
+
+---------------------------------------------------------------------------------------------------
+Javascript with steganography
+	embed data in visual images
+given an image thast is jumbled via these parameters
+ red pixels are 10x less luminous than original
+blue and green values are meaningless noise
+	
+	im= new simpleImage("iron-puzzle.png");
+	for (x=0; x< im.getwidth(); x++) {
+		for(y=0; y< im.getHeight(); y++) {
+			//code for each x, y pixel goes as loops create iteration of value from image object
+	}
+}
+
+print(im);
+
+gets x value of pixels and y values and then keeps value of 0 for x and iterates through all of the y values, advancing x=> 1 and re-iterating through y set again
+
+left to right, top to bottom
+code example as follows
+PSEUDOCODE
+	tuirn blue pixels to 0
+	turn green pixels to 0 (basic and removes data to be processed possibly?)
+	read value increased by 10x luminosity or saturation
+
+print the nely modified image to reveal data
+	im.setBlue(x,y,0)   setBlue is a method of im object instantiated with the new command and assigned to string or char variable
+	im.setGreen(x,y,0)  setGreen is another method of im object
+	red = im.GetRed(x,y);
+	im.Setred(x,y, red*10)
+	
