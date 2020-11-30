@@ -1,0 +1,85 @@
+Linear SEARCH 
+
+L to R looking for element until found, iterating until found
+
+more exhaustive but succeeds, 
+
+negatives" must look through all, 
+Worst case: O(n)
+best case :  Omega(1)
+
+-----------------------------------------------------------------------
+
+Binary SEARCH
+Divide and conquer
+
+Psuedocode
+initial sort
+calculate mid point of current sub array
+if target is middle return target
+else if target is less than midpoint, change new endpoint to 1 to the left of midpoint
+else if target is greater than mid point, change new start point to middle plus 1
+
+else if (base case) not found
+
+
+
+Worst Case O: (log n)
+Best Case Omega(1)
+
+------------------------------------------------------------------------
+
+
+Bubble SORT
+
+swap counter set to 0
+iterate through each pair, switching if needed, counter ++
+iterate through list repeatedly until swap counter == 0 at the end of the last sort
+
+worst case O()
+best caseOmega()
+
+------------------------------------------------------------------------
+
+
+Selection SORT
+
+find smallest element and add to first element of unsorted
+re-search the new unsorted list
+ repeat
+
+Worst case O n^2
+Best Case Omega: n^2
+-------------------------------------------------------------------------
+
+Insertion SORT
+
+first elemented called sorted
+look at next unsorted element
+
+repeat:
+	insert into sorted array in correct position
+	by shifting elements previously sorted elements out of the way
+
+Worst Case: O n^2
+Best Case: Omega n
+------------------------------------------------------------------------
+
+recursion 
+
+n! 
+
+4!  = 4 * 3!
+3! = 3*2!
+
+int fact(int n)
+	{
+
+		if (n--1)
+			return 1;
+		else
+			return n* fact(n-1)
+	}
+
+function calls itself whil decrementing the implicit? parameters until base case is reached
+recursive can replace iteration loops in functions
