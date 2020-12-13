@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main(void)
+{
+    int n=50;
+    printf("%i\n", &n);
+}
+
+
+creates value
+prints value by collecting location & and going there *
+sample but defeats the point
+
+
+
+
+
+
+--------------------------------------------------------
+
+making pointer (*p)  that points to memory location of variable n (&n)
+#include <stdio.h>
+
+int main(void)
+{
+    int n=50;
+    int *p = &n;
+    printf("%p\n", p);
+}
+
+prints 0x18374674238ffg  cryptic on purpose, random on purpose to creat security
+
+
+
+
+
+---------------------------------------------------------------------------------
+
+now pull the integer by asking for the value in the pointer location
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n=50;
+    int *p = &n;
+    printf("%i\n", *p);
+}
+
+prints 50
+---------------------------------------------------------------------------------
+
+complier error if you write
+
+int p = &n
+
+type error of address vs int value possibly by clang?
