@@ -1,0 +1,94 @@
+Pointer low level discussion
+
+int n = 50;		variable
+
+int *p = &n;	pointer looking at address of variable n
+
+int 4 bit
+pointer 64 bit
+pointer 8 blocks   ex 0x27384736     -location in memory
+
+
+
+block p ----> n (at location 0x27384736)
+
+if you looked at pointer p the address is stored , not the int, which explains the size of the pointer, it must store memory location
+
+construct data structures with pointers pointing at pointers, etc........
+used by large social media and data structure specific companies
+1
+
+-------------------------------------------------------------------------------
+
+
+String discussion
+
+s = "EMMA"   actually is an array with each char as an index and a null terminator (\0)
+terminator is used to know string is done with iteration
+
+Each byte in the string has its own address
+E - > 0x123
+M - > 0x124
+M - > 0x125
+A - > 0x126
+\0- > 0x127
+
+variable s is a pointer, stores the value of the first (0th) index of the string
+s points to 0x123
+
+---------------------------------------------------------------------------------
+
+String Char *
+
+string s = "EMMA";
+char *s = "Emma";
+
+string is the address of the first byte iterated through the characters until a  null terminator is found
+-------------------------------
+typedef struct
+{
+	string name;
+	string number;
+}
+
+person; 
+--------------------------------
+
+
+typedef char *string;  
+ typedef - gives you new data type, char * tells the type of value is address of character 
+
+
+
+-------------------------------------------------------------
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+  char  *s = "EMMA";
+  printf("%p\n", s);
+  printf("%p\n", &s[0]);
+  printf("%p\n", &s[1]);
+  printf("%p\n", &s[2]);
+}
+
+
+prints address of first char
+prints first address of char
+prints second address of char index
+
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+  char  *s = "EMMA";
+  printf("%c\n", *s);          "E"
+  printf("%p\n", &s);	       0x12345
+}
+
+
+
