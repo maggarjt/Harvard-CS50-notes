@@ -1,0 +1,28 @@
+Memory allocation
+creating space in memory to be accessed by program to store variables and perform operations
+malloc() in C language- can allocate static number or expression
+
+Memory free
+Free the memory up or you get leak
+
+Memory Leak principle
+location/address in memory RAM isnt freed up, this is leak and canbuild upon multiple iterations or processes to crash computer or 
+use memory and slow computer down, efectively making program less efficient
+
+Buffer overrun
+if you have an array and attempt to access len(array) + 1, anything outside of range
+is bad due to corruption of adjacent memory locations as you attempt to append or access information from the overrun address
+in C language strings have a null operator \0 that isnt beyond the string array of char  EMMA is actually  EMMA\0
+
+Pointers
+char *s instead of string in C
+string is actually a pointer to the first element char in array making a word, null terminator \0 at the end of the string is how the language
+reads the string
+
+*s is equivalent to "go to this location in memory"    
+&s is equivalent to show address of pointer s location in memory
+both can be used in expressions calling up the memory or value  WHY? 
+example jpegs standards have the forst three memory locations and you can identify Jpeg by analyzing the forst three memory addresses
+
+
+char *s is the new string without the training wheels of the CS50 IDE
