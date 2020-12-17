@@ -1,0 +1,28 @@
+hex
+
+0-9
+A-F
+
+A3     10x16 + 3x1  163
+
+
+example for computer memory
+
+0x prefix base 16
+ox 488   -> 4(16^3) + 8(16^2) + 8(16^0) = 16384 + 2048 + 8 = 22356
+
+each place in number is 16 raised to the place 16^0........16^30.......16^100
+
+
+BINARY TO HEX
+translate via 4 digit groups from R to L 
+
+0100 0110 1010 0010 1011 1001 0011 1101
+1101 = 13 = D
+0011 = 3 = 3
+....
+....
+....
+0100 = 4
+
+0x 4.......3D    
