@@ -1,0 +1,92 @@
+Memory (RAM) is allocated to store variables and do calculations
+
+dynamic allocation
+lets you avoid knowing how much you need
+use pointers to get access to dynamic memory which is 
+allocated during the porogram and not as it compiled
+
+this comes from the "HEAP"
+
+HEAP vs STACK
+if you give a variable a name
+x = 45   -> stack
+
+
+
+
+   One pool of memory divided
+----------------------------------------------------
+TEXT
+initialized data
+uninitialized data
+
+HEAP (everything below)
+
+
+...
+
+...
+...
+....
+
+STACK (moves up)
+environment variable
+
+-------------------------------------------------
+
+the area between heap and stack is what we are trying to manage
+memory issues if the HEAP descends or the STACK grows and there are overrun? collissions? degradation of memory locations? overwrite?    
+ not sure the exact issues but these are probable (research this)
+
+
+malloc()
+allocates memory  , if no memory you will get a Null Pointer and get a segmentation fault
+
+Statically obtain int
+int x:
+
+dynamically obatin int
+int *px = malloc(sizeof(int))
+
+creates a pointer to a location of sizeof(int) 
+points to 4 bytes of memory from the HEAP
+
+
+---------------------------------------------------------------------
+
+int x = getint();				int from user
+float stack_array[x];				array of floats on stack
+
+
+float* heap_array = malloc(x*sizeof(float));	array of floats on HEAP
+
+heap_array[0] is possible due to the pointer pointing to the first element in the array
+----------------------------------------------------------------------------
+
+memory isnt always returned
+MEMORY LEAK - occurs when you dont free up memory after use using free() or whatever function is  language specific 
+
+free each block you malloc and dont free memory twice
+------------------------------------------------------------------------------
+
+
+Example of HEAP vs STACK
+
+int m; 				creates int variable m in box at location 	STACK
+int* a; 				creates box called A that will point to int  STACK
+
+int* b = malloc(sizeof(int));		creates 2 boxes and links them 	1.pointer box (on STACK) to hold location of 
+								2. box that can take an int (HEAP)
+
+a = &m; 				a is pointer  box holding location of variable m (ex. 0x74775834) 
+
+a = b;     				a now points to where b point (doesnt point to b)
+				if you want a to point at b it would have to point to &b(location in memory)
+
+*b = m +2; 			dereference b  (got to var pointed to by pointer b and do the calculation)
+
+free(b)				releasing memory back to system b still exists but the values pointed to are release
+
+*a = 11;				since *a and *b were pointing to same location and b was freed, 11 cant be stored in the memory that was freed
+				Error: Segmentation
+
