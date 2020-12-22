@@ -1,0 +1,102 @@
+ARRAY BASICS 
+DECLARED UP FRONT TO SIZE 3
+	
+but you need 4, cant add another block easily due to random assignment of memory locations
+
+cant resize array, must copy and free previous memory and add 4th element of array
+
+low efficiency
+
+big O (n)   runtime for insertion to array 
+
+
+search if numbers sorted O log n 
+
+list.c
+
+#include <stdio.h>
+
+int main(void)
+
+{
+	int list[3];
+	list[0] = 1;	
+	list[1] = 2;	
+	list[2] = 3;	
+
+	for (int i=0; i<3; i++)
+	{
+		printf("%i\n", list[i]);
+	}
+}
+
+looks good BUT, hard coded size of array without buffer area
+
+to scale this program more effectively and change  (in real world this would be handled differently)
+
+--------------------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h> //malloc() and free()
+
+int main(void)
+{
+
+	int *list =malloc(3*sizeof(int))
+
+	//when allocating memory always check for null
+	if (list == NULL)
+	{	
+		return 1;    //error checking
+	}
+
+
+	//  can use square bracket notation to pointers 
+	// adding array elements using first memory location
+
+	
+	list[0] = 1;	 //represents location of first byte of memory 
+	list[1] = 2;	// not the second byte but the 5th (2nd int due to 4 bytes)
+	list[2] = 3;	    
+ 
+	int *tmp =malloc(4*sizeof(int));
+	if (tmp == NULL)
+	{	
+		return 1;    //error checking	
+	}
+	
+
+	//copy integers from old to new via iteration
+	for (int i=0; i<3; i++)
+	{
+		tmp[i] = list[i];
+	}
+
+	//add new elements to array
+	tmp[3] = 4;
+
+	//free up old chink of memory of 3 element array
+	free(list);
+	//computer knows bytes asked for originally and cleans it for you 
+
+	//print elements of tmp
+	for (int i=0; i<3; i++)
+	{
+		printf("%i\n", tmp[i]);
+	}
+	
+	free(list)
+	//corrects memory leak by freeing chunk
+}
+-------------------------------------------------------------
+REALLOC ,stdlib.h>
+
+int *tmp =realloc(list, 4*sizeof(int));
+if (tmp == NULL)
+	{	
+		return 1;    //error checking	
+	}
+//handy function that simplifies earlier concept
+
+-------------------------------------------------------
+
+if you try to reassign list = [array values] you effectively orphan the original memory chunk due to losing its pointer , i assume you owuld have to know memory location to use free(0x17363652) to clean it up using & to imply memory location value
