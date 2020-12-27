@@ -1,0 +1,119 @@
+[] Notation needws to be contiguous. 
+makes it harder to modify, length due to alloc issues
+
+linked list
+
+2 cunks of memory, 
+1. holds int
+2. holds pointer to new memory chunk
+3. looking for null (pointer, not the same as /0 which is a char terminator)
+
+Problems: 
+
+storing values and pointers which adds size
+ random access is gone because you have to follow pointers (not able to do binary search due to starting at middle of data)
+
+--------------------------------------------------------------------------------------------------------
+NODE - chuck of memory used for purpose
+
+
+code:
+	
+typedef struct
+{
+	int number;
+}
+node;
+
+// creates a struct that contains an int
+//node; line at bottom is a shortname to call the struct(object,class in other languages)
+// PERIOD NOTATION CAN BE USED TO CALL METHODS OR VARIABLES IN STRUCT(OBJECT)
+//  	EX.   NODE.NUMBER 
+
+
+node should be
+
+1. Pointer to new memory location for int in next node
+but C doesnt recognize node unless you have defined it before so the struct declaration must change
+
+new improved node
+-----------------------------------------------
+typedef struct node
+{
+	int number;
+	struct node *next;
+}
+node;
+
+node is an alias for a struct node object
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+LINKED LIST
+---------------
+
+node *list = NULL;     //no numbers available so we give it NULL;
+//must allocate memory for next node
+
+node *n = malloc(sizeof(node));
+//n is a temp variable
+
+
+options
+
+(*n).number = 2;   
+
+//parenthesis used for order of operations but it looks bad
+//setting value of number in node object to value 2
+//can also be written this way
+
+n->number = 2;
+
+n-> next = NULL;
+// gives objects *next pointer NULL for value
+
+
+list = n;
+//
+
+-------------------------------------------------------------
+cleaned up version , checking for memory issues
+
+node *n = malloc(sizeof(node));
+if (n != NULL}
+{
+	n-> number = 2;
+	n->next = NULL;
+}
+
+list = n;
+// when list is created it has no pointer or next or value
+//create list NULL, create second node and then link (NULL valued list)
+
+//so now we crreate another node but need 2nd node's pointer to point at newly created node (3rd index of node)
+// create temp variable 
+
+node *tmp = list;
+//points at same thing original list variable pointed at
+// if it not null, update pointer to next pointer etc....
+//when temp pointer hits null (last index in linked list) 
+
+-----------------------------------------------------------
+
+//add new index that is less in value ordered
+//cannot point to new node from OG NULL LIST because you orphan the other pre-existing nodes
+//memory leak because orphaned nodes arent free()
+
+// point new low value node at 2, then point null list to newly added low value node
+ n->next = list;
+list = n;
+
+// adding node in middle of sorted list
+point mid value node to next node, loop previous nodes to rest all the pointers to the correct values, equalioty checks etc....
+
+
+
